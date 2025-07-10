@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuarios {
+public  final class Usuarios {
 
+    private static Usuarios instance;
     private List<Usuario> usuarios;
 
     public Usuarios(){
@@ -37,6 +38,13 @@ public class Usuarios {
     }
     public List<Usuario> getUsuarios(){
         return this.usuarios;
+    }
+
+    public static Usuarios getInstance(){
+        if (instance == null){
+            instance = new Usuarios();
+        }
+        return instance;
     }
 
 }
